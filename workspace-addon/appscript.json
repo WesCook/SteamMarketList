@@ -1,0 +1,32 @@
+{
+    "timeZone": "America/Vancouver", // Your timezone here
+    "dependencies": {
+      "enabledAdvancedServices": [
+        {
+          "userSymbol": "Gmail",
+          "version": "v1",
+          "serviceId": "gmail"
+        }
+      ]
+    },
+    "exceptionLogging": "STACKDRIVER",
+    "runtimeVersion": "V8",
+    "oauthScopes": [
+      "https://www.googleapis.com/auth/gmail.addons.execute",
+      "https://www.googleapis.com/auth/gmail.modify"
+    ],
+    "gmail": {
+          "name": "", // Fill in
+          "logoUrl": "", // Fill in
+          "primaryColor": "#111111",
+          "secondaryColor": "#000000",
+          "contextualTriggers": [{
+              "unconditional": {},
+              "onTriggerFunction": "getMessageCard"
+          }],
+          "homepageTrigger": {
+              "enabled": true,
+              "runFunction": "getHomepageCard"
+          }
+      }
+  }

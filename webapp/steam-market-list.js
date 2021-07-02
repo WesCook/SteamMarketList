@@ -1,4 +1,4 @@
-function doGet() {
+function myFunction() {
 	let output = "";
 	let re = /(https\:\/\/steamcommunity\.com\/market\/confirmlisting\/\d+\?accountid\=\d+&amp;confirmation_code\=\d+)/;
 
@@ -14,14 +14,9 @@ function doGet() {
 			// Add URL to list
 			let body = message.getBody();
 			let url = re.exec(body)[0];
+			url = url.replace(/&amp;/g, '&'); // Clean ampersand entities from URL
 			output += url + "\n";
-
-			// Mark message as read
-			message.markRead();
 		});
-
-		// Archive thread
-		thread.moveToArchive();
 	});
 
 	// Print to log and return text output page
